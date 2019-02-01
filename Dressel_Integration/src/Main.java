@@ -79,7 +79,7 @@ public class Main {
     Scanner scan = new Scanner(System.in);
     System.out.println("Welcome to to Bank of Java termninal!");
     // Random balance generated for each account. And stored as double balance
-    DecimalFormat form = new DecimalFormat(".##");
+    DecimalFormat money = new DecimalFormat(".##");
     double checkingBalance = (Math.random() * 1000);
     double savingBalance = (Math.random() * 1000);
 
@@ -89,7 +89,11 @@ public class Main {
      * for a constant, unchanging variable. 
      * This helps me avoid making errors when applying the fee to calculations.
      */
-    final double FEE = 0.50;
+    /*Casting variables is used to convert variable types. This is useful 
+     *performing operations with two different variable types, such as an int
+     *and a double. 
+     * */
+    final int FEE = (int)1;
 
     String accountMenu = 
         "Choose an account - Enter 1 for Checking - Enter 2 for Savings";
@@ -140,7 +144,7 @@ public class Main {
             keepLoop = true;
           } else {
             System.out.println("Thank you! Your new balance is "
-                + form.format(checkingBalance - (userWithdrawal + FEE)) + "$");
+                + money.format(checkingBalance - (userWithdrawal + FEE)) + "$");
           }
         } 
         else if (accountNum == 2) {
@@ -153,7 +157,7 @@ public class Main {
           } 
           else {
             System.out.println("Thank you! Your new balance is "
-                + form.format(savingBalance - userWithdrawal) + "$");
+                + money.format(savingBalance - (userWithdrawal + FEE)) + "$");
           }
         }
       }
@@ -169,14 +173,14 @@ public class Main {
           int userDeposit = scan.nextInt();
           System.out.println(
               "Thank you! Your new balance is " + 
-               form.format(checkingBalance + userDeposit) + "$");
+               money.format(checkingBalance + userDeposit) + "$");
         } 
         else if (accountNum == 2) {
           System.out.println("Enter amount you wish to deposit");
           int userDeposit = scan.nextInt();
           System.out.println(
               "Thank you! Your new balance is " + 
-               form.format(savingBalance + userDeposit) + "$");
+               money.format(savingBalance + userDeposit) + "$");
         }
       }
 
@@ -185,10 +189,10 @@ public class Main {
         System.out.println(accountMenu);
         int accountNum = scan.nextInt();
         if (accountNum == 1) {
-          System.out.println(form.format(checkingBalance) + "$");
+          System.out.println(money.format(checkingBalance) + "$");
         } 
         else if (accountNum == 2) {
-          System.out.println(form.format(savingBalance) + "$");
+          System.out.println(money.format(savingBalance) + "$");
         } 
         else {
 
