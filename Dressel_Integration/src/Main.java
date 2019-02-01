@@ -91,14 +91,17 @@ public class Main {
      */
     final double FEE = 0.50;
 
-    String accountMenu = "Choose an account - Enter 1 for Checking - Enter 2 for Savings";
+    String accountMenu = 
+        "Choose an account - Enter 1 for Checking - Enter 2 for Savings";
 
     /*
      * User enters branch where they can either add or subtract money 
      * from current balance.
      */
 
-    String menu = "Enter 1 for Withdrawal - Enter 2 for Deposit - Enter 3 to Check Balances";
+    String menu = 
+        "Enter 1 for Withdrawal - Enter 2 for Deposit - "
+        + "Enter 3 to Check Balances";
 
     // keepLoop boolean to determine whether to continue the program.
 
