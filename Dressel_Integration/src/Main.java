@@ -97,12 +97,8 @@ public class Main {
 
     String accountMenu = 
         "Choose an account - Enter 1 for Checking - Enter 2 for Savings";
-
-    /*
-     * User enters branch where they can either add or subtract money 
-     * from current balance.
-     */
-
+    
+    
     String menu = 
         "Enter 1 for Withdrawal - Enter 2 for Deposit - "
         + "Enter 3 to Check Balances";
@@ -123,7 +119,10 @@ public class Main {
      * or input. At the end of each branch the keepLoop value is set to the 
      * corresponding value.
      */
-
+    /*
+     * User enters branch where they can either deposit or withdrawal money 
+     * from current balance.
+     */
     do {
       System.out.println(menu);
       int userChoice = scan.nextInt();
