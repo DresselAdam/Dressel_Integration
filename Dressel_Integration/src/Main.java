@@ -77,7 +77,7 @@ public class Main {
   public static void main(String[] args) {
     // New scanner object reads user input
     Scanner scan = new Scanner(System.in);
-    System.out.println("Welcome to to Bank of Java termninal!");
+    System.out.println("Welcome to to Bank of Java terminal!");
     // Random balance generated for each account. And stored as double balance
     DecimalFormat form = new DecimalFormat(".##");
     double checkingBalance = (Math.random() * 1000);
