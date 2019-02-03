@@ -98,7 +98,7 @@ public class Main {
      * from current balance.
      */
 
-    String menu = "Enter 1 for Withdrawal - Enter 2 for Deposit - Enter 3 to Check Balances";
+    String menu = "Enter 1 for Withdrawal \n - Enter 2 for Deposit \n - Enter 3 to Check Balances";
 
     // keepLoop boolean to determine whether to continue the program.
 
