@@ -208,6 +208,7 @@ public class Main {
       }
     } while (keepLoop);
     scan.close();
+    System.out.println("Thank you for choosing Bank of Java!");
   }
 }
 
