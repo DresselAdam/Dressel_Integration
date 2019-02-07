@@ -71,8 +71,12 @@ public class Main {
   public static void main(String[] args) {
     // New scanner object reads user input
     Scanner scan = new Scanner(System.in);
+<<<<<<< HEAD
     System.out.println("Welcome to to Bank of Java termninal!");
     DecimalFormat money = new DecimalFormat(".##");
+=======
+    System.out.println("Welcome to to Bank of Java terminal!");
+>>>>>>> branch 'master' of https://github.com/Slimes3/Dressel_Integration
     // Random balance generated for each account. And stored as double balance
     Account checking = new Account();
     checking.setBalance();
@@ -90,9 +94,13 @@ public class Main {
      */
     final int FEE = (int) 1;
 
+<<<<<<< HEAD
     String accountMenu = "Choose an account - Enter 1 for Checking " + "- Enter 2 for Savings";
 
     String menu = "Enter 1 for Withdrawal - Enter 2 for Deposit - " + "Enter 3 to Check Balances";
+=======
+    String menu = "Enter 1 for Withdrawal \n - Enter 2 for Deposit \n - Enter 3 to Check Balances";
+>>>>>>> branch 'master' of https://github.com/Slimes3/Dressel_Integration
 
     // keepLoop boolean to determine whether to continue the program.
 
