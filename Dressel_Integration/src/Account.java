@@ -1,4 +1,4 @@
-import java.text.DecimalFormat;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Account {
@@ -7,10 +7,11 @@ public class Account {
   private static String acctMenu =
       "Choose an account - Enter 1 for Checking " + "- Enter 2 for Savings";
   private static int acctNum;
+  private Random randBal = new Random();
 
   // setBalance method uses random to generate a random balance for an account.
   public void setBalance() {
-    balance = (Math.random() * 1000);
+    balance = randBal.nextDouble() * 1000;
   }
 
   // getBalance returns the value of balance, first created by setBalance,
@@ -18,12 +19,12 @@ public class Account {
   public double getBalance() {
     return balance;
   }
+  
   // The acctMenu method option is used to choose an account inside each menu
   // option in main. For example if the user chooses withdrawal, the main
   // method will run the acctMenu method, let the user decide on an account,
   // and then run the withdrawal for that account. The acctMenu is static
   // because we are using it to choose a specific class object.
-
   public static Account acctMenu(Account acctNum1, Account acctNum2) {
     Account chosenAcct = new Account();
     do {
