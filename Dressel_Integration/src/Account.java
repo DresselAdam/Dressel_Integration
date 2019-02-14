@@ -25,6 +25,9 @@ public class Account {
   // method will run the acctMenu method, let the user decide on an account,
   // and then run the withdrawal for that account. The acctMenu is static
   // because we are using it to choose a specific class object.
+  
+  // The following line is a header, 
+  // and inside the parentheses are the parameters
   public static Account acctMenu(Account acctNum1, Account acctNum2) {
     Account chosenAcct = new Account();
     do {

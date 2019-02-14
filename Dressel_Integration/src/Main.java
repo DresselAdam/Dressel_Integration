@@ -46,6 +46,8 @@ public class Main {
       // All other integers, result in repeating the loop.
       switch(userChoice) {
         case 1: System.out.printf
+        // This is a method call inside a print statement,
+        // the arguments are the Account objects in parentheses.
         ("%.2f",Account.acctMenu(checking, savings).withdrawal());
                 break;
         case 2: System.out.printf
