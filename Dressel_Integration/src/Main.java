@@ -33,15 +33,16 @@ public class Main {
     do {
       System.out.println(menu);
       int userChoice = scan.nextInt();
-      // 1st choice. If user tries to withdrawal more money than the balance,
+      // 1st option If user tries to withdrawal more money than the balance,
         // an error message appears. The withdrawal method is called on the chosen
         // account.
-      // Second option, simply a deposit option.
+      // Second option simply a deposit option.
         // User can currently deposit any integer they choose.
         // Similar to withdrawal option, calls the deposit method on the chosen
         // account.
-      // Third option, displays indicated balance by calling the getBalance()
+      // Third option displays indicated balance by calling the getBalance()
         // method on the chosen account.
+      // Fourth option exits the loop and closes the scanner.
       // All other integers, result in repeating the loop.
       switch(userChoice) {
         case 1: System.out.printf
