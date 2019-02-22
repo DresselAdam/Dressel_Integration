@@ -2,24 +2,55 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Account {
-  private double balance;
-  private static Scanner scan = new Scanner(System.in);
-  private static String acctMenu =
-      "Choose an account - Enter 1 for Checking " + "- Enter 2 for Savings";
-  private static int acctNum;
-  private Random randBal = new Random();
+  private double checkingBal;
+  private double savingBal;
+  //Variables for future use.
+  private String acctName;
+  private int acctNum;
 
   // setBalance method uses random to generate a random balance for an account.
-  public void setBalance() {
-    balance = randBal.nextDouble() * 1000;
+  public void setCheckingBal(double bal) {
+    checkingBal= bal;
   }
-
+  public void setSavingBal(double bal) {
+    savingBal = bal;
+  }
+  public double getSavingBal() {
+    return savingBal;
+  }
   // getBalance returns the value of balance, first created by setBalance,
   // and then altered by the various other methods.
-  public double getBalance() {
-    return balance;
+  public double getCheckingBal() {
+    return checkingBal;
   }
-  
+  public double savingWthdrwl(int withAmnt) {
+    if (withAmnt > savingBal) {
+      System.out.println("Not enough funds.");
+    } else {
+      savingBal -= withAmnt;
+    }
+    return savingBal;
+  }
+  public double checkingWthdrwl(int withAmnt) {
+    if (withAmnt > checkingBal) {
+      System.out.println("Not enough funds.");
+    } else {
+      checkingBal -= withAmnt;
+    }
+    return checkingBal;
+}
+  public double savingDep(int depAmnt) {
+    savingBal += depAmnt;
+    System.out.println("Thank you! Your new balance is ");
+    return savingBal;
+  }
+  public double checkingDep(int depAmnt) {
+    checkingBal += depAmnt;
+    System.out.println("Thank you! Your new balance is ");
+    return checkingBal;
+  }
+}
+/*  
   // The acctMenu method option is used to choose an account inside each menu
   // option in main. For example if the user chooses withdrawal, the main
   // method will run the acctMenu method, let the user decide on an account,
@@ -44,27 +75,4 @@ public class Account {
     return chosenAcct;
   }
 
-  // The withdrawal method is used by subtracting a given amount from the
-  // object's current balance. An if statement is used in case a user attempts
-  // to withdraw more money than they have in their account balance.
-  public double withdrawal() {
-    System.out.println("Choose amount to withdraw:");
-    int withAmnt = scan.nextInt();
-    if (withAmnt > balance) {
-      System.out.println("Not enough funds.");
-    } else {
-      balance -= withAmnt;
-    }
-    return balance;
-  }
-
-  // The deposit method works similar to the withdraw, except we are adding to
-  // the balance of the chosen account.
-  public double deposit() {
-    int depAmnt = scan.nextInt();
-    balance += depAmnt;
-    System.out.println("Thank you! Your new balance is ");
-    return balance;
-  }
-
-}
+}*/

@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
 
@@ -12,18 +13,20 @@ public class Main {
     Scanner scan = new Scanner(System.in);
     System.out.println("Welcome to to Bank of Java terminal!");
     // Random balance generated for each account. And stored as double balance
-    Account checking = new Account();
-    checking.setBalance();
-    Account savings = new Account();
-    savings.setBalance();
-
+    Random randBal = new Random();
+    Account user1 = new Account();
+    user1.setCheckingBal(randBal.nextDouble() * 1000);
+    user1.setSavingBal(randBal.nextDouble() * 1000);
     // final keyword used for a fee applied to a withdrawal transaction. The final keyword is used
     // for a constant, unchanging variable. This helps me avoid making errors when applying the fee
     // to calculations.
     final int FEE = (int) 1;
 
-    String menu = " - Enter 1 for Withdrawal \n " + "- Enter 2 for Deposit \n "
-        + "- Enter 3 to Check Balances \n " + "- Enter 4 to Exit";
+
+
+    String menu = " \n 1 - Check Balances  \n " + "2 - to withdrawal from savings \n "
+        + "3 - to withdrawal from checking \n " + "4 - for savings deposit \n "
+        + "5 - for checking deposit \n " + "6 - to Exit";
 
 
     // keepLoop boolean to determine whether to continue the program.
@@ -34,33 +37,45 @@ public class Main {
       System.out.println(menu);
       int userChoice = scan.nextInt();
       // 1st option If user tries to withdrawal more money than the balance,
-        // an error message appears. The withdrawal method is called on the chosen
-        // account.
+      // an error message appears. The withdrawal method is called on the chosen
+      // account.
       // Second option simply a deposit option.
-        // User can currently deposit any integer they choose.
-        // Similar to withdrawal option, calls the deposit method on the chosen
-        // account.
+      // User can currently deposit any integer they choose.
+      // Similar to withdrawal option, calls the deposit method on the chosen
+      // account.
       // Third option displays indicated balance by calling the getBalance()
-        // method on the chosen account.
+      // method on the chosen account.
       // Fourth option exits the loop and closes the scanner.
       // All other integers, result in repeating the loop.
-      switch(userChoice) {
-        case 1: System.out.printf
-        // This is a method call inside a print statement,
-        // the arguments are the Account objects in parentheses.
-        ("%.2f",Account.acctMenu(checking, savings).withdrawal());
-                break;
-        case 2: System.out.printf
-        ("%.2f",Account.acctMenu(checking, savings).deposit());
-                break;
-        case 3: System.out.printf
-        ("%.2f",Account.acctMenu(checking, savings).getBalance());
-                break;
-        case 4: keepLoop = false;
-                break;
-        default: keepLoop = true;
-                 System.out.println("This is not a valid option,"
-                 + " please choose one of the above."); 
+      switch (userChoice) {
+        case 1:
+          System.out.printf("Checking:" + "%.2f" + "\n", user1.getCheckingBal());
+          // This is a method call inside a print statement,
+          // the arguments are the Account objects in parentheses.
+          System.out.printf("Savings:" + "%.2f", user1.getSavingBal());
+          break;
+        case 2:
+          System.out.println("Choose amount to withdraw:");
+          System.out.printf("%.2f", user1.savingWthdrwl(scan.nextInt()));
+          break;
+        case 3:
+          System.out.println("Choose amount to withdraw:");
+          System.out.printf("%.2f", user1.checkingWthdrwl(scan.nextInt()));
+          break;
+        case 4:
+          System.out.println("Choose amount to deposit:");
+          System.out.printf("%.2f", user1.savingDep(scan.nextInt()));
+          break;
+        case 5:
+          System.out.println("Choose amount to deposit:");
+          System.out.printf("%.2f", user1.checkingDep(scan.nextInt()));
+          break;
+        case 6:
+          keepLoop = false;
+          break;
+        default:
+          keepLoop = true;
+          System.out.println("This is not a valid option," + " please choose one of the above.");
       }
     } while (keepLoop);
     scan.close();
