@@ -25,12 +25,12 @@ public class Main {
     final int FEE = (int) 1;
 
 
-
+    //Main menu for program
     String menu = " \n 1 - Check Balances  \n " + 
     "2 - to withdrawal from savings \n "
         + "3 - to withdrawal from checking \n " + "4 - for savings deposit \n "
         + "5 - for checking deposit \n " + "6 - to transfer \n 7 - My Earnings";
-
+    //Menu used for the transfer balances option
     String transferMenu = "\n 1 - checking --> savings " + 
     "\n 2 - savings --> checking";
 
@@ -44,6 +44,7 @@ public class Main {
       int userChoice = scan.nextInt();
       
       switch (userChoice) {
+        //Calls the get balance method for both checking and savings.
         case 1:
           System.out.printf("Checking:" + "%.2f" + "\n", user1.getCheckingBal());
           // This is a method call inside a print statement,
