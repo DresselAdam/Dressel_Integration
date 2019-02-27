@@ -1,7 +1,8 @@
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
-
+//Adam Dressel
+//Basic ATM machine simulator. Integrating basic skills learned about java.
 public class Account {
   // At this point each account object can hold a value for a checking and
   // savings account.
