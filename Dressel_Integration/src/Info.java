@@ -59,3 +59,16 @@
  * Whenever you divide integers, the result is an integer, and any floating point number gets
  * truncated.
  */
+/* Operator Precedence in descending order.
+  Postfix   Expr++ expr--
+  Unary   ++expr --expr +expr -expr ~ !
+  Multiplicative  / % *
+  Additive    + -
+  Shift   << >> >>>
+  Relational  < > <= >= instanceof
+  Equality    == !=
+  Logical AND &&
+  Logical OR  ||
+  Ternary ?:
+  Assignment  = += -=, etc.
+  */
