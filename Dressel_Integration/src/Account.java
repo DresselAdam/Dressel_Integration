@@ -63,19 +63,14 @@ public class Account {
   // The transfer methods take a constant transfer amount, subtract that value
   // from one balance and add it to the other balance.
   public double transferSavToCheck(int tranAmt) {
-    if(savingBal < tranAmt) {
-      System.out.println("Not enough funds.");
-    }
-    else {
       savingBal -= tranAmt;
       checkingBal += tranAmt;
-    }
-    return checkingBal;  
+      return checkingBal;  
   }
   public double transferCheckToSav(int tranAmt) {
       savingBal += tranAmt;
       checkingBal -= tranAmt;
-    return savingBal;  
+      return savingBal;  
   }
   //The compound interest method calculates the interest accumulated in a 
   //savings account over the next ten years. It returns the value of an element

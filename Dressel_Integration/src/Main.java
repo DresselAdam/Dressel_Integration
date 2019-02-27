@@ -52,22 +52,35 @@ public class Main {
           //break is a keyword that immediately exits the loop and continues to
           //the next statement after the loop.
           break;
+          
+          //Calls the savings withdrawal method
         case 2:
           System.out.println("Choose amount to withdraw:");
           System.out.printf("%.2f", user1.savingWthdrwl(scan.nextInt()));
           break;
+          
+          //Calls the checking withdrawal method
         case 3:
           System.out.println("Choose amount to withdraw:");
           System.out.printf("%.2f", user1.checkingWthdrwl(scan.nextInt()));
           break;
+          
+          //Calls the savings deposit method
         case 4:
           System.out.println("Choose amount to deposit:");
           System.out.printf("%.2f", user1.savingDep(scan.nextInt()));
           break;
+          
+          //Calls the checking deposit method
         case 5:
           System.out.println("Choose amount to deposit:");
           System.out.printf("%.2f", user1.checkingDep(scan.nextInt()));
           break;
+          
+          // The most robust case, the user must choose which accounts they
+          // would like to transfer to and from.
+          // If the user attempts to transfer more than their balance, an error
+          // message will appear.
         case 6:
           System.out.println(transferMenu);
           int acctChoice = scan.nextInt();
@@ -77,9 +90,15 @@ public class Main {
             } else if (acctChoice == 1) {
                 System.out.println("Enter amount to transfer: ");
                 int transferAmt = scan.nextInt();
-                user1.transferSavToCheck(transferAmt);
-                System.out.println("Success! Press 1 to check new balances.");
-            } else if (acctChoice == 2) {
+                if(transferAmt > user1.getSavingBal()) {
+                  System.out.println("Sorry, not enough funds.");
+                }
+                else {
+                  user1.transferSavToCheck(transferAmt);
+                  System.out.println("Success! Press 1 to check new balances.");
+                }
+            }
+              else if (acctChoice == 2) {
                 System.out.println("Enter amount to transfer: ");
                 int transferAmt = scan.nextInt();
                 if(transferAmt > user1.getCheckingBal()) {
@@ -92,6 +111,9 @@ public class Main {
               } 
           } while (acctChoice != 1 && acctChoice != 2);
           break;
+          
+          // Calls the compound interest method. The user inputs the year they
+          // would like to know their balance.
         case 7:
           System.out.println("Enter year you would like to calculate: ");
           int year = scan.nextInt();
@@ -99,11 +121,15 @@ public class Main {
               /*This is a method call, and year is the argument*/
               user1.getCompInt(year));
           break;
+        
+          // All other integers result in an error, and result in repeating the
+          // menu loop.
         default:
           keepLoop = true;
           System.out.println("This is not a valid option," + 
           " please choose one of the above.");
       }
+      
       // The continue keyword causes the loop to immediately jump to the next
       // iteration of the loop.
       continue;
